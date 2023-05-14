@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 
 export default function Home() {
 
@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <main className="h-full text-center space-y-2">
         <h1 className='text-2xl '>Lets Cook, this dou, its amazing</h1>
-              </main>
+       </main>
     </>
   );
 }
