@@ -11,6 +11,19 @@ export default function Home() {
   // console.log(session);
   // console.log([status]);
 
+  const postData = async () => {
+    try {
+      const response = await axios.post('/api/routes',{
+        firstName:"Ayomide",
+        lastName:"Adebisi"
+      });
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  postData()
+
   const getData = async () => {
     try {
       const response = await axios.get('/api/routes');
@@ -25,7 +38,7 @@ export default function Home() {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
   }
 
-  if (status === "loading") {
+  if (status === "loading"){
     return (
       <>
         <p>Loading stuff</p>
