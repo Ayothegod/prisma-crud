@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { FcGoogle } from "react-icons/fc"
-import { AiOutlineLoading3Quarters,AiOutlineMail } from "react-icons/ai"
+import { AiOutlineLoading3Quarters, AiOutlineMail } from "react-icons/ai"
 import { BsPerson } from "react-icons/bs"
 import { MdPassword } from "react-icons/md"
 
@@ -9,7 +9,7 @@ const Auth = () => {
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const changePage = () => {
-        if(variant == "signin"){
+        if (variant == "signin") {
             setVariant("signup")
         } else {
             setVariant("signin")
@@ -47,9 +47,14 @@ const Auth = () => {
                         </span>
                     </div>
 
-                    <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
-                        {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign in"}
-                    </button>
+                    {variant == "signin" ?
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
+                            {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign in"}
+                        </button> :
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
+                            {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign up"}
+                        </button>
+                    }
 
                     <div>
                         <button className="cursor-pointer rounded w-full text-black border border-neutral-500 font-medium px-4 py-1 hover:text-white hover:bg-black flex items-center gap-2 justify-center">sign in with google <FcGoogle /></button>
