@@ -6,7 +6,8 @@ import { MdPassword } from "react-icons/md"
 import {  signIn ,useSession, signOut} from "next-auth/react"
 import { useRouter } from "next/router"
 
-const Auth = () => {
+const Auth = ({nameValue}) => {
+    console.log({nameValue});
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -90,3 +91,12 @@ const Auth = () => {
     )
 }
 export default Auth
+
+// export async function getStaticProps() {
+//     const name = await name
+//     return {
+//         props:{ nameValue
+
+//         }
+//     }
+// }
