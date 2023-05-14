@@ -3,14 +3,23 @@ import React from 'react';
 import { signIn, useSession, signOut, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import Link from 'next/link';
-
-
+import axios from 'axios';
 
 export default function Home() {
   const router = useRouter()
   const { data: session, status } = useSession()
   console.log(session);
   console.log([status]);
+
+  const getData = async () => {
+    try {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  // getData()
 
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
