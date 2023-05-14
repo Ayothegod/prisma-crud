@@ -3,10 +3,14 @@
 
 
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     
     if( req.method === "GET"){
-        res.json("Hello getters")
+        try {
+            res.json("Hello getters")
+        } catch (error) {
+            res.status(404).json(error.message)
+        }
     }
 
     if( req.method === "POST"){
