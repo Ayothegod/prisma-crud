@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { FcGoogle } from "react-icons/fc"
-import { AiOutlineLoading3Quarters } from "react-icons/ai"
+import { AiOutlineLoading3Quarters,AiOutlineMail } from "react-icons/ai"
 import { BsPerson } from "react-icons/bs"
 import { MdPassword } from "react-icons/md"
 
@@ -11,13 +11,13 @@ const Auth = () => {
 
     return (
         <div className="h-screen flex items-center px-8 justify-center bg-gradient-to-tr from-purple-600 to-purple-400">
-            <div className="bg-white p-4 w-full sm:w-1/2 rounded shadow-md ">
-                {variant == "signin" ? <h1 className="text-2xl mb-4 font-medium ">Sign in</h1> : <h>Sign up</h>}
+            <div className="bg-white p-4 w-full sm:w-1/2 md:w-[25rem] rounded shadow-md ">
+                {variant == "signin" ? <h1 className="text-2xl mb-4 font-medium ">Sign in</h1> : <h1 className="text-2xl mb-4 font-medium ">Sign up</h1>}
                 <div>
-                    {variant == "signin" &&
+                    {variant == "signout" &&
                         <div className="flex relative">
 
-                            <input type="text" placeholder="input name" className="border border-neutral-400 rounded px-2 py-1 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600" />
+                            <input type="text" placeholder="input name" className="border border-neutral-400 rounded px-2 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
                             <span className="absolute right-2 top-3 text-gray hover:text-black">
                                 <BsPerson />
                             </span>
@@ -26,15 +26,15 @@ const Auth = () => {
 
                     <div className="flex relative">
 
-                        <input type="text" placeholder="input email" className="border border-neutral-400 rounded px-2 py-1 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600" />
+                        <input type="text" placeholder="input email" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
                         <span className="absolute right-2 top-3 text-gray hover:text-black">
-                            <BsPerson />
+                            <AiOutlineMail />
                         </span>
                     </div>
 
                     <div className="flex relative">
 
-                        <input type={showPassword ? "text" : "password"} placeholder="input password" className="border border-neutral-400 rounded px-2 py-1 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600" />
+                        <input type={showPassword ? "text" : "password"} placeholder="input password" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm py-2 text-sm outline-none focus:border-purple-600" />
                         <span className="absolute right-2 top-3 text-gray hover:text-black" onClick={() => setShowPassword(!showPassword)}>
                             <MdPassword />
                         </span>
