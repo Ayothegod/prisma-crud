@@ -23,7 +23,6 @@ const Auth = () => {
     }
     const setAuth = () => {
         signIn("google",{ callbackUrl: 'http://localhost:3000/' })
-        // router.push("/")
     }
 
     return (
