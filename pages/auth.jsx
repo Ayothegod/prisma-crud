@@ -12,9 +12,9 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [Password, setPassword] = useState("")
+    const [password, setPassword] = useState("")
     const { data: session } = useSession()
-    console.log(session);
+    // console.log(session);
     const changePage = () => {
         if (variant == "signin") {
             setVariant("signup")
@@ -22,6 +22,14 @@ const Auth = () => {
             setVariant("signin")
         }
     }
+    const submitInputs = () => {
+        if(email.length > 1 && password.length > 1){
+            console.log(email,password)
+        } else{
+            console.log("cant login empty values");
+        }
+    }
+
     const setAuth = () => {
         signIn("google",{ callbackUrl: 'http://localhost:3000/' })
     }
@@ -51,17 +59,17 @@ const Auth = () => {
 
                     <div className="flex relative">
 
-                        <input type={showPassword ? "text" : "password"} name="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="input password" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm py-2 text-sm outline-none focus:border-purple-600" />
+                        <input type={showPassword ? "text" : "password"} name="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="input password" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm py-2 text-sm outline-none focus:border-purple-600" />
                         <span className="absolute right-2 top-3 text-gray hover:text-black" onClick={() => setShowPassword(!showPassword)}>
                             <MdPassword />
                         </span>
                     </div>
 
                     {variant == "signin" ?
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitInputs}>
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign in"}
                         </button> :
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitInputs}>
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign up"}
                         </button>
                     }
