@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import React from 'react';
-import {  signIn ,useSession, signOut} from "next-auth/react"
+import {  signIn ,useSession, signOut, getSession} from "next-auth/react"
 import { useRouter } from "next/router"
 
 
 export default function Home() {
   const router = useRouter()
   const { data: session } = useSession()
+  // const {session} = useSession().data
   console.log(session);
 
   const signout = () => {
@@ -23,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-full text-center space-y-2">
-        <p>{session?.user.email}</p>
+        <p>{session ? session?.user.email : "No user"}</p>
         <button onClick={signout}>sign out</button>
         <h1 className='text-2xl '>Lets Cook, this dou, its amazing</h1>
        </main>
@@ -31,5 +32,22 @@ export default function Home() {
   );
 }
 
+export async function getServerSideProps({req}) {
+  const session = await getSession({req})
+  // const session = await use
 
+  if(!session){
+    return {
+      redirect:{
+        destination:"/auth",
+        permanent:false
+      }
+    }
+  }
 
+  return{
+    props:{
+
+    }
+  }
+}

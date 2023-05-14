@@ -4,11 +4,9 @@ import { AiOutlineLoading3Quarters, AiOutlineMail } from "react-icons/ai"
 import { BsPerson } from "react-icons/bs"
 import { MdPassword } from "react-icons/md"
 import {  signIn ,useSession, signOut} from "next-auth/react"
-// import prisma from "@/lib/prisma"
 import { useRouter } from "next/router"
 
 const Auth = () => {
-    const router = useRouter()
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
