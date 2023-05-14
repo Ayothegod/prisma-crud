@@ -1,18 +1,29 @@
 import Head from 'next/head'
 import React from 'react';
-import {  signIn ,useSession, signOut, getSession} from "next-auth/react"
+import { signIn, useSession, signOut, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
+import Link from 'next/link';
 
 
 export default function Home() {
   const router = useRouter()
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   // const {session} = useSession().data
   console.log(session);
+  console.log([status]);
 
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
     // router.push("/auth")
+  }
+
+  if (status === "unauthenticated") {
+    return (
+      <>
+        <p>No allowed access</p>
+        <Link href='/'>Sign in to access stuffs</Link>
+      </>
+    )
   }
 
   return (
@@ -27,27 +38,28 @@ export default function Home() {
         <p>{session ? session?.user.email : "No user"}</p>
         <button onClick={signout}>sign out</button>
         <h1 className='text-2xl '>Lets Cook, this dou, its amazing</h1>
-       </main>
+      </main>
     </>
   );
 }
 
-export async function getServerSideProps({req}) {
-  const session = await getSession({req})
-  // const session = await use
+// export async function getServerSideProps({req}) {
+//   const session = await getSession({req})
 
-  if(!session){
-    return {
-      redirect:{
-        destination:"/auth",
-        permanent:false
-      }
-    }
-  }
+//   // const session = await use
 
-  return{
-    props:{
+//   if(!session){
+//     return {
+//       redirect:{
+//         destination:"/auth",
+//         permanent:false
+//       }
+//     }
+//   }
 
-    }
-  }
-}
+//   return{
+//     props:{
+
+//     }
+//   }
+// }
