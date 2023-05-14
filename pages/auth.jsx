@@ -2,15 +2,17 @@ import { useState } from "react"
 import { FcGoogle } from "react-icons/fc"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { BsPerson } from "react-icons/bs"
+import { MdPassword } from "react-icons/md"
 
 const Auth = () => {
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     return (
         <div className="h-screen flex items-center px-8 justify-center bg-gradient-to-tr from-purple-600 to-purple-400">
             <div className="bg-white p-4 w-full sm:w-1/2 rounded shadow-md ">
-                {variant == "signin" ? <h className="text-2xl font-medium ">Sign in</h> : <h>Sign up</h>}
+                {variant == "signin" ? <h1 className="text-2xl mb-4 font-medium ">Sign in</h1> : <h>Sign up</h>}
                 <div>
                     {variant == "signin" &&
                         <div className="flex relative">
@@ -32,9 +34,9 @@ const Auth = () => {
 
                     <div className="flex relative">
 
-                        <input type="password" placeholder="input password" className="border border-neutral-400 rounded px-2 py-1 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600" />
-                        <span className="absolute right-2 top-3 text-gray hover:text-black">
-                            <BsPerson />
+                        <input type={showPassword ? "text" : "password"} placeholder="input password" className="border border-neutral-400 rounded px-2 py-1 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600" />
+                        <span className="absolute right-2 top-3 text-gray hover:text-black" onClick={() => setShowPassword(!showPassword)}>
+                            <MdPassword />
                         </span>
                     </div>
 
