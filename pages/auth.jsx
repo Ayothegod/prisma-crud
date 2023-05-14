@@ -15,7 +15,11 @@ const Auth = () => {
                     <input type="password" placeholder="input password" className="border border-neutral-400 rounded px-2 py-1 w-full my-1"/>
 
 
-                    <input type="submit" value="sign in" className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1"/>
+                    <input type="submit" value="sign in" className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4"/>
+
+                    <div>
+                        <button className="cursor-pointer rounded w-full text-black border border-neutral-500 px-4 py-1">sign in with google</button>
+                    </div>
                 </div>
             </div>
         </div>
