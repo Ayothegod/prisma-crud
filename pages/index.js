@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import React, { useEffect, useMemo, useState } from 'react';
 
 export default function Home() {
+
+
   return (
     <>
       <Head>
@@ -9,9 +12,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full">
-        Hello, whats going on, i dont understand, lets build this appThanks for working
-      </main>
+      <main className="h-full text-center space-y-2">
+        <h1 className='text-2xl '>Lets Cook</h1>
+              </main>
     </>
   );
 }
+
+
+
