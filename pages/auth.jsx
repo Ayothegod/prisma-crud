@@ -10,6 +10,9 @@ const Auth = () => {
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [Password, setPassword] = useState("")
     const { data: session } = useSession()
     console.log(session);
     const changePage = () => {
