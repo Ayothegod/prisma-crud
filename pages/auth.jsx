@@ -28,7 +28,6 @@ const Auth = () => {
 
     return (
         <div className="h-screen flex items-center px-8 justify-center bg-gradient-to-tr from-purple-600 to-purple-400">
-            <button onClick={() => signOut()}>signout</button>
             <div className="bg-white p-4 w-full sm:w-1/2 md:w-[25rem] rounded shadow-md ">
                 {variant == "signin" ? <h1 className="text-2xl mb-4 font-medium ">Sign in</h1> : <h1 className="text-2xl mb-4 font-medium ">Sign up</h1>}
                 <div>

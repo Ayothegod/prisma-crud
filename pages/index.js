@@ -1,8 +1,18 @@
 import Head from 'next/head'
 import React from 'react';
+import {  signIn ,useSession, signOut} from "next-auth/react"
+import { useRouter } from "next/router"
+
 
 export default function Home() {
+  const router = useRouter()
+  const { data: session } = useSession()
+  console.log(session);
 
+  const signout = () => {
+    signOut()
+    router.push("/auth")
+  }
 
   return (
     <>
@@ -13,6 +23,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-full text-center space-y-2">
+        <p>{session?.user.email}</p>
+        <button onClick={signout}>sign out</button>
         <h1 className='text-2xl '>Lets Cook, this dou, its amazing</h1>
        </main>
     </>
