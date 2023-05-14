@@ -10,8 +10,8 @@ export default function Home() {
   console.log(session);
 
   const signout = () => {
-    signOut()
-    router.push("/auth")
+    signOut({ callbackUrl: 'http://localhost:3000/auth' })
+    // router.push("/auth")
   }
 
   return (

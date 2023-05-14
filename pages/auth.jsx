@@ -22,8 +22,8 @@ const Auth = () => {
         }
     }
     const setAuth = () => {
-        signIn("google")
-        router.push("/")
+        signIn("google",{ callbackUrl: 'http://localhost:3000/' })
+        // router.push("/")
     }
 
     return (
