@@ -67,7 +67,13 @@ const Auth = () => {
                         <button className="cursor-pointer rounded w-full text-black border border-neutral-500 font-medium px-4 py-1 hover:text-white hover:bg-black flex items-center gap-2 justify-center" onClick={setAuth}>sign in with google <FcGoogle /></button>
                     </div>
                 </div>
-                <p className="text-xs mt-4 text-center">do not have an account? <span className="font-bold underline cursor-pointer" onClick={changePage}>sign up</span></p>
+                {
+                    variant == "signin"
+                     ? 
+                    <p className="text-xs mt-4 text-center">do not have an account? <span className="font-bold underline cursor-pointer" onClick={changePage}>sign up</span></p> 
+                    : 
+                    <p className="text-xs mt-4 text-center">already a user? <span className="font-bold underline cursor-pointer" onClick={changePage}>sign in</span></p>
+                }
             </div>
         </div>
     )
