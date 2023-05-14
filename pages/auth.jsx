@@ -34,7 +34,7 @@ const Auth = () => {
                     {variant == "signup" &&
                         <div className="flex relative">
 
-                            <input type="text" placeholder="input name" className="border border-neutral-400 rounded px-2 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
+                            <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} placeholder="input name" className="border border-neutral-400 rounded px-2 w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
                             <span className="absolute right-2 top-3 text-gray hover:text-black">
                                 <BsPerson />
                             </span>
@@ -43,7 +43,7 @@ const Auth = () => {
 
                     <div className="flex relative">
 
-                        <input type="text" placeholder="input email" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
+                        <input type="text" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="input email" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm outline-none focus:border-purple-600 py-2 text-sm" />
                         <span className="absolute right-2 top-3 text-gray hover:text-black">
                             <AiOutlineMail />
                         </span>
@@ -51,7 +51,7 @@ const Auth = () => {
 
                     <div className="flex relative">
 
-                        <input type={showPassword ? "text" : "password"} placeholder="input password" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm py-2 text-sm outline-none focus:border-purple-600" />
+                        <input type={showPassword ? "text" : "password"} name="password" value={Password} onChange={e => setPassword(e.target.value)} placeholder="input password" className="border border-neutral-400 rounded px-2  w-full my-1 placeholder:text-sm py-2 text-sm outline-none focus:border-purple-600" />
                         <span className="absolute right-2 top-3 text-gray hover:text-black" onClick={() => setShowPassword(!showPassword)}>
                             <MdPassword />
                         </span>
