@@ -8,18 +8,18 @@ import axios from 'axios';
 export default function Home() {
   const router = useRouter()
   const { data: session, status } = useSession()
-  console.log(session);
-  console.log([status]);
+  // console.log(session);
+  // console.log([status]);
 
   const getData = async () => {
     try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      const response = await axios.get('/api/routes');
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   }
-  // getData()
+  getData()
 
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
