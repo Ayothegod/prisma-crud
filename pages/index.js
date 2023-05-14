@@ -17,11 +17,18 @@ export default function Home() {
     // router.push("/auth")
   }
 
+  if (status === "loading") {
+    return (
+      <>
+        <p>Loading stuff</p>
+      </>
+    )
+  }
   if (status === "unauthenticated") {
     return (
       <>
         <p>No allowed access</p>
-        <Link href='/'>Sign in to access stuffs</Link>
+        <Link href='/auth'>Sign in to access stuffs</Link>
       </>
     )
   }
