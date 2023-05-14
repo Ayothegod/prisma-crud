@@ -13,7 +13,6 @@ export default function Home() {
 
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
-    // router.push("/auth")
   }
 
   if (status === "loading") {
