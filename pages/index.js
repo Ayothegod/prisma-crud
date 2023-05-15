@@ -13,7 +13,7 @@ import DesktopCreate from '@/components/DesktopCreate';
 import MobileCreate from '@/components/MobileCreate';
 
 export default function Home({allPosts,user}) {
-  // console.log({allPosts})
+  console.log(user)
   const router = useRouter()
   const { data: session, status } = useSession()
   const [profile, setProfile] = useState(false)
@@ -45,7 +45,10 @@ export default function Home({allPosts,user}) {
                   <div onClick={() => setProfile(!profile)}>
 
                     <p>Signed in as: {session && session?.user.email}</p>
-                    <Image src={session?.user.image} alt={session?.user.name} />
+                    <div className="h-10 w-10">
+
+                    <Image src={session?.user.image} alt={session?.user.name} fill />
+                    </div>
                     {
                       profile && <Profile />
                     }
