@@ -8,6 +8,7 @@ import CreatePosts from '@/components/CreatePosts';
 import AllPosts from '@/components/AllPosts';
 import prisma from '@/lib/prisma';
 import Image from 'next/image';
+import Profile from '@/components/Profile';
 
 export default function Home(allPosts) {
   // console.log({allPosts})
@@ -52,7 +53,7 @@ export default function Home(allPosts) {
                     <p>Signed in as: {session && session?.user.email}</p>
                     <Image src={session?.user.image} alt={session?.user.name}/>
                     {
-
+                      profile && <Profile/>
                     }
                   </div>
                   : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
