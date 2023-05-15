@@ -8,7 +8,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   return (
     <div className="text-black h-screen  ">
       <div className="flex items-center justify-center h-full px-4 py-8">
-        <div className="bg-white w-full h-full flex items-center flex-col justify-center py-4 px-8 rounded shadow-md ">
+        <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
           <div className="flex items-center justify-between w-full gap-4 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">
@@ -17,7 +17,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
             <p className="font-semibold">@{userData[0].name}</p>
           </div>
 
-          <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button>
+          <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end">Close modal</button>
 
         </div>
       </div>
