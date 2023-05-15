@@ -31,16 +31,7 @@ export default function Home(allPosts) {
       </>
     )
   }
-  // if (status === "unauthenticated") {
-  //   return (
-  //     <div className='flex items-center justify-center min-h-screen p-4'>
-  //       <p>No allowed access</p>
-  //       <Link href='/auth'>Sign in access this route</Link>
-  //     </div>
-  // <p>{session ? session?.user.email : "No user"}</p>
-  //   )
-  // }
-
+  
   return (
     <>
       <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
