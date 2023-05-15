@@ -75,7 +75,7 @@ export default function Home(allPosts) {
                 <div>you cant create post yet</div>
             }
           </div>
-          <div>
+          <div className='hidden sm:block'>
             <div>
               Create post sectiion===================================
             </div>
