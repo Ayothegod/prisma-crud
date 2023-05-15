@@ -1,7 +1,7 @@
 import { useUserContext } from "@/hooks/hooks"
 import Image from "next/image"
 import { useState } from "react"
-import {MdArrowBackIos} from "react-icons/md"
+import { MdArrowBackIos } from "react-icons/md"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
@@ -13,15 +13,17 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
   // console.log(userData)
 
-  const createPost = async() => {
+  const createPost = async () => {
     try {
-      const body = await {
-        textArea,id:userData[0].id
-      }
-      // await fetch("/api/routes",{
-
-      // })
-      console.log(body)
+      const body = await { textArea, id:userData[0].id }
+      const response = await fetch("/api/routes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      })
+      console.log(response)
     } catch (error) {
       console.log(error.message);
     }
@@ -33,7 +35,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
       <div className="flex items-center justify-center h-full px-4 py-8">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
-        <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos/></button>
+          <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos /></button>
 
           <div className="flex items-center w-full gap-2 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">

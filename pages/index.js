@@ -15,6 +15,7 @@ import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({ allPosts, user }) {
   const { userData, setUserData } = useUserContext()
+  console.log(allPosts)
   useEffect(() => {
     setUserData(user)
   }, [])
@@ -123,7 +124,13 @@ export default function Home({ allPosts, user }) {
 // }
 
 export async function getServerSideProps() {
-  const allPosts = await prisma.Post.findMany()
+  const allPosts = await prisma.Post.findMany({
+    select:{
+      id:true,
+      userId:true,
+      postData:true
+    }
+  })
   const user = await prisma.user.findMany()
 
   return {

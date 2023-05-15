@@ -13,12 +13,12 @@ export default async function handler(req, res) {
     }
 
     if( req.method === "POST"){
-        const {name,age } = req.body
+        const {textArea,id } = req.body
         try {
             const newTester = await prisma.Post.create({
                 data:{
-                    name:name,
-                    age:age
+                    userId:id,
+                    postData:textArea
                 }
             })
             res.json(newTester)
