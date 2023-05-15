@@ -2,6 +2,7 @@ import Image from "next/image"
 
 
 const SinglePosts = ({post}) => {
+    console.log("ommor, im tired");
   return (
     <div>
         <p>{post.postData}</p>
