@@ -14,7 +14,7 @@ export default function Home(allPosts) {
   // console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
-  const [profile,setProfile] = useState(false)
+  const [profile, setProfile] = useState(false)
   // console.log(session);
 
   const signout = () => {
@@ -51,9 +51,9 @@ export default function Home(allPosts) {
                   <div onClick={() => setProfile(!profile)}>
 
                     <p>Signed in as: {session && session?.user.email}</p>
-                    <Image src={session?.user.image} alt={session?.user.name}/>
+                    <Image src={session?.user.image} alt={session?.user.name} />
                     {
-                      profile && <Profile/>
+                      profile && <Profile />
                     }
                   </div>
                   : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
@@ -67,13 +67,16 @@ export default function Home(allPosts) {
           <AllPosts />
           <CreatePosts />
           <button onClick={signout}>sign out</button>
-        {
-          status === "authenticated" ?
-            <div>You can create posts</div> :
-            <div>you cant create post yet</div>
-        }
+          {
+            status === "authenticated" ?
+              <div>You can create posts</div> :
+              <div>you cant create post yet</div>
+          }
         </section>
-        
+
+        <section className='fixed bottom-4 right-4'>
+          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md'>Create</button>
+        </section>
       </main>
     </>
   );
