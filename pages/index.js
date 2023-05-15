@@ -9,12 +9,15 @@ import AllPosts from '@/components/AllPosts';
 import prisma from '@/lib/prisma';
 import Image from 'next/image';
 import Profile from '@/components/Profile';
+import DesktopCreate from '@/components/DesktopCreate';
+import MobileCreate from '@/components/MobileCreate';
 
 export default function Home(allPosts) {
   // console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
   const [profile, setProfile] = useState(false)
+  const [mobileCreate, setMobileCreate] = useState(false)
   // console.log(session);
 
   const signout = () => {
@@ -77,13 +80,17 @@ export default function Home(allPosts) {
           </div>
           <div className='hidden sm:block'>
             <div>
-              Create post sectiion===================================
+              <DesktopCreate/>
             </div>
           </div>
         </section>
 
         <section className='fixed bottom-4 right-4 sm:hidden'>
           <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700'>Create</button>
+          {
+            mobileCreate && 
+            <MobileCreate/>
+          }
         </section>
       </main>
     </>
