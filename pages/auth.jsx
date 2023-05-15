@@ -7,6 +7,7 @@ import {  signIn ,useSession, signOut} from "next-auth/react"
 import { useRouter } from "next/router"
 
 const Auth = () => {
+    const router = useRouter()
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -33,22 +34,26 @@ const Auth = () => {
             })
 
             console.log(status)
+
+            if(status.ok) router.push(status.url)
         } else{
             console.log("cant login empty values");
         }
     }
 
-    const submitRegisterForm = async () => {
+    const submitRegisterForm = async (e) => {
+        e.preventDefault()
         if(email.length > 1 && password.length > 1 && name.length > 1){
-            // const status = await signIn("credentials",{
-            //     redirect:false,
-            //     email:email,
-            //     password:password,
-            //     callbackUrl:"/"
-            // })
-
-            // console.log(status)
-            console.log("ok, you can goo");
+            const body = {name,email,password}
+            const res = await fetch("/api/credentials",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify(body)
+            })
+            console.log(res);
+            const user = await res.json().then(() => router.push("/"))
         } else{
             console.log("cant login empty values");
         }
