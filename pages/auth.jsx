@@ -15,7 +15,6 @@ const Auth = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const { data: session } = useSession()
-    // console.log(session);
     const changePage = () => {
         if (variant == "signin") {
             setVariant("signup")
