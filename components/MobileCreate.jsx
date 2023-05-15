@@ -7,12 +7,16 @@ import {MdArrowBackIos} from "react-icons/md"
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
   const [textArea, setTextArea] = useState("")
+  // const [id,setId] = useState(userData[0].id)
+  // console.log(userData);
+  // console.log(id);
+
   // console.log(userData)
 
   const createPost = async() => {
     try {
-      const body = {
-        textArea,id:userData.id,name:userData.name
+      const body = await {
+        textArea,id:userData[0].id
       }
       // await fetch("/api/routes",{
 
