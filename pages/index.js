@@ -13,20 +13,18 @@ export default function Home() {
 
   const postData = async () => {
     try {
-      const body = { name: "favour",age: 202}
-      const response = await fetch("/api/routes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
+      const response = await axios.post("/api/routes",{
+        name:"bruh",
+        age:50
+      },{
+        headers:{"Content-Type":"application/json"}
       })
       console.log(response);
     } catch (error) {
       console.error(error);
     }
   }
-  postData()
+  // postData()
 
   // const getData = async () => {
   //   try {

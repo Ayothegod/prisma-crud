@@ -5,8 +5,8 @@ export default async function handler(req, res) {
 
     if( req.method === "GET"){
         try {
-
-
+            const allUsers = await prisma.tester.findMany()
+            res.json(allUsers)
         } catch (error) {
             res.status(404).json(error.message)
         }
