@@ -15,7 +15,10 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
   const createPost = async () => {
     try {
-      const body = await { textArea, id:userData[0].id }
+      if(textArea.length < 1){
+        console.log("cant create empty content");
+      } else {
+        const body = await { textArea, id:userData[0].id }
       const response = await fetch("/api/routes", {
         method: "POST",
         headers: {
@@ -24,11 +27,11 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         body: JSON.stringify(body)
       })
       console.log(response)
+      }
     } catch (error) {
       console.log(error.message);
     }
   }
-
 
   return (
     <div className="text-black h-screen  ">

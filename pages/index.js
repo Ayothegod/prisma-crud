@@ -16,6 +16,7 @@ import { useUserContext } from '@/hooks/hooks';
 export default function Home({ allPosts, user }) {
   const { userData, setUserData } = useUserContext()
   console.log(allPosts)
+
   useEffect(() => {
     setUserData(user)
   }, [])
@@ -70,8 +71,11 @@ export default function Home({ allPosts, user }) {
           <div>
 
             <AllPosts />
+
+            <div className='hidden sm:block'>
+
             <CreatePosts />
-            <button onClick={signout}>sign out</button>
+            </div>
             {
               status === "authenticated" ?
                 <div>You can create posts</div> :
@@ -137,3 +141,5 @@ export async function getServerSideProps() {
     props: { allPosts, user }
   }
 }
+
+              {/* <button onClick={signout}>sign out</button> */}
