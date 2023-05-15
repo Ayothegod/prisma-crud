@@ -55,7 +55,6 @@ export default function Home() {
             <div>You can create posts</div> :
             <div>you cant create post yet</div>
         }
-        {/* <p>this is  age{data.age}</p> */}
       </main>
     </>
   );
