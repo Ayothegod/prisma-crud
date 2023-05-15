@@ -15,7 +15,7 @@ import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({ allPosts, user }) {
   const { userData, setUserData } = useUserContext()
-  console.log(allPosts)
+  // console.log(allPosts)
 
   useEffect(() => {
     setUserData(user)
@@ -69,7 +69,7 @@ export default function Home({ allPosts, user }) {
           <div className=' flex '>
 
             {/* <div className=''></div> */}
-              <AllPosts />
+              <AllPosts allPosts={allPosts} />
             
 
             {/* <div className='hidden sm:block '></div> */}
