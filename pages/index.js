@@ -45,9 +45,9 @@ export default function Home({allPosts,user}) {
                   <div onClick={() => setProfile(!profile)}>
 
                     <p>Signed in as: {session && session?.user.email}</p>
-                    <div className="h-10 w-10">
+                    <div className="h-10 w-10 relative">
 
-                    <Image src={session?.user.image} alt={session?.user.name} fill />
+                    <Image src={session?.user.image} alt={session?.user.name} fill className='absolute' />
                     </div>
                     {
                       profile && <Profile />
