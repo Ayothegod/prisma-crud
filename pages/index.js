@@ -76,6 +76,7 @@ export default function Home({ allPosts, user }) {
 
             <CreatePosts />
             </div>
+             <button onClick={signout}>sign out</button>
             {
               status === "authenticated" ?
                 <div>You can create posts</div> :

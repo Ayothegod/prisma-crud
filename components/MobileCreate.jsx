@@ -8,6 +8,7 @@ import {  useSession, getSession } from "next-auth/react"
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
   const { data: session, status } = useSession()
+  console.log(session);
   const [textArea, setTextArea] = useState("")
   // const [id,setId] = useState(userData[0].id)
   // console.log(userData);
@@ -44,9 +45,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
           <div className="flex items-center w-full gap-2 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">
-              <Image src={userData[0].image} alt={session?.image} fill className="absolute" />
+              <Image src={userData[0].image} alt={session?.user.image} fill className="absolute" />
             </div>
-            <p className="font-semibold">@{session?.email}</p>
+            <p className="font-semibold">@{session?.user.name}</p>
           </div>
 
           <div className="w-full">
@@ -69,9 +70,10 @@ export default MobileCreate
 </div> */}
 {/* 
   <div className="w-8 h-8 relative rounded-full overflow-hidden">
-    <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
+  <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
   </div>
   <p className="font-semibold">@{userData[0].name}</p> */}
 
 
-{/* <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button> */ }
+
+  {/* <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button> */ }
