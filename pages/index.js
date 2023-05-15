@@ -64,18 +64,24 @@ export default function Home(allPosts) {
         </section>
 
         <section className='mt-14 max-w-[62rem] mx-auto'>
-          <AllPosts />
-          <CreatePosts />
-          <button onClick={signout}>sign out</button>
-          {
-            status === "authenticated" ?
-              <div>You can create posts</div> :
-              <div>you cant create post yet</div>
-          }
+          <div>
+
+            <AllPosts />
+            <CreatePosts />
+            <button onClick={signout}>sign out</button>
+            {
+              status === "authenticated" ?
+                <div>You can create posts</div> :
+                <div>you cant create post yet</div>
+            }
+          </div>
+          <div>
+
+          </div>
         </section>
 
-        <section className='fixed bottom-4 right-4'>
-          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md'>Create</button>
+        <section className='fixed bottom-4 right-4 sm:hidden'>
+          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700'>Create</button>
         </section>
       </main>
     </>
