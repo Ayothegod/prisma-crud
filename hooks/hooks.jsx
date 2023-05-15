@@ -3,7 +3,7 @@ const { createContext, useContext, useState } = require("react");
 const userContext = createContext(null)
 
 export const UserContextProvider = ({children}) => {
-    const [userData,setUserData] = useState([])
+    const [userData,setUserData] = useState(["hello","bro"])
 
     const value = {
         userData,setUserData

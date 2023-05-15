@@ -11,8 +11,11 @@ import Image from 'next/image';
 import Profile from '@/components/Profile';
 import DesktopCreate from '@/components/DesktopCreate';
 import MobileCreate from '@/components/MobileCreate';
+import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({allPosts,user}) {
+  const {userData} = useUserContext()
+  console.log(userData);
   // console.log(user)
   const router = useRouter()
   const { data: session, status } = useSession()
