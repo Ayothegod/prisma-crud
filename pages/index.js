@@ -9,7 +9,7 @@ import AllPosts from '@/components/AllPosts';
 import prisma from '@/lib/prisma';
 
 export default function Home(allPosts) {
-  console.log({allPosts})
+  // console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
   // console.log(session);
@@ -37,19 +37,23 @@ export default function Home(allPosts) {
 
   return (
     <>
-      <main className="h-full">
-        <section>
-          <nav>
-            <h1>Postr</h1>
-            <div>
-              {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'></Link></p>}
+      <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
+        <section className='flex items-center justify-center'>
+          <nav className='bg-[#929292] shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
+            <div className='flex text-white items-center justify-between md:w-1/2 md:mx-auto'>
+
+              <h1 className='text-purple-600 font-bold text-xl'>Postr</h1>
+              <div>
+                {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'></Link></p>}
+              </div>
             </div>
           </nav>
 
         </section>
-        <section>
-          <AllPosts/>
-          <CreatePosts/>
+
+        <section className='mt-14 w-[62rem] mx-auto'>
+          <AllPosts />
+          <CreatePosts />
         </section>
         <button onClick={signout}>sign out</button>
         {
@@ -83,10 +87,10 @@ export default function Home(allPosts) {
 //   }
 // }
 
-export async function getServerSideProps(){
+export async function getServerSideProps() {
   const allPosts = await prisma.Post.findMany()
 
   return {
-    props:{allPosts }
+    props: { allPosts }
   }
 }
