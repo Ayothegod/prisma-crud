@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { signIn, useSession, signOut, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import Link from 'next/link';
@@ -14,8 +14,10 @@ import MobileCreate from '@/components/MobileCreate';
 import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({allPosts,user}) {
-  const {userData} = useUserContext()
-  console.log(userData);
+  const {userData, setUserData} = useUserContext()
+  useEffect(() => {
+    setUserData(user)
+  },[])
   // console.log(user)
   const router = useRouter()
   const { data: session, status } = useSession()
