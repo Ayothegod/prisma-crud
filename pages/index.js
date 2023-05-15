@@ -20,8 +20,6 @@ export default function Home({ allPosts, user }) {
   useEffect(() => {
     setUserData(user)
   }, [])
-  // console.log(user)
-  const router = useRouter()
   const { data: session, status } = useSession()
   const [profile, setProfile] = useState(false)
   const [mobileCreate, setMobileCreate] = useState(false)
