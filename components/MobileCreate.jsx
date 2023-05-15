@@ -7,16 +7,25 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   console.log(userData)
   return (
     <div className="text-black h-screen  ">
-      <div className="flex items-center justify-center h-full p-4">
-        <div className="bg-white w-full h-full">Hello</div>
+      <div className="flex items-center justify-center h-full px-4 py-8">
+        <div className="bg-white w-full h-full flex items-center flex-col justify-center py-4 px-8 rounded shadow-md ">
+
+          <div className="flex items-center justify-between w-full gap-4 mb-4">
+            <div className="w-8 h-8 relative rounded-full overflow-hidden">
+              <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
+            </div>
+            <p className="font-semibold">@{userData[0].name}</p>
+          </div>
+
+          <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button>
+
+        </div>
       </div>
     </div>
   )
 }
 
 export default MobileCreate
-
-{/* <div className="bg-white flex items-center flex-col justify-center p-4 rounded shadow-md"> */}
 
 
 {/* <div className="flex items-center justify-between w-full gap-4 mb-4">
@@ -29,4 +38,4 @@ export default MobileCreate
   <p className="font-semibold">@{userData[0].name}</p> */}
 
 
-{/* <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button> */}
+{/* <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button> */ }
