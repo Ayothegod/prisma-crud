@@ -19,11 +19,11 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
             <p className="font-semibold">@{userData[0].name}</p>
           </div>
 
-          <div>
-            <input type="text" />
+          <div className="w-full">
+            <textarea name="textarea" id="" cols="30" rows="10" className="border border-neutral-500 w-full rounded outline-purple-600" placeholder="postr away!!!"></textarea>
           </div>
 
-          <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end">Close modal</button>
+          <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end bg-purple-500 text-white py-1 px-2 rounded shadow hover:bg-purple-600">Close modal</button>
 
         </div>
       </div>
