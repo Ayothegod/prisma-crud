@@ -68,13 +68,13 @@ export default function Home({ allPosts, user }) {
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
           <div className=' flex '>
 
-            <div className=''>
+            {/* <div className=''></div> */}
               <AllPosts />
-            </div>
+            
 
-            <div className='hidden sm:block '>
+            {/* <div className='hidden sm:block '></div> */}
               <DesktopCreate />
-            </div>
+            
           </div>
         </section>
 

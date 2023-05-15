@@ -1,7 +1,9 @@
 
 const DesktopCreate = () => {
   return (
-    <div>DesktopCreate</div>
+    <div className="hidden sm:block">
+      DesktopCreate
+    </div>
   )
 }
 
