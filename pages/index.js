@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function Home() {
   const router = useRouter()
   const { data: session, status } = useSession()
-  // console.log(session);
+  console.log(session);
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
   }
