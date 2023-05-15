@@ -44,14 +44,14 @@ export default function Home(allPosts) {
 
               <h1 className='text-purple-600 font-bold text-xl'>Postr</h1>
               <div>
-                {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'></Link></p>}
+                {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
               </div>
             </div>
           </nav>
 
         </section>
 
-        <section className='mt-14 w-[62rem] mx-auto'>
+        <section className='mt-14 max-w-[62rem] mx-auto'>
           <AllPosts />
           <CreatePosts />
         </section>
