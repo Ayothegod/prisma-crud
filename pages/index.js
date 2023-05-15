@@ -76,7 +76,9 @@ export default function Home(allPosts) {
             }
           </div>
           <div>
-
+            <div>
+              Create post sectiion===================================
+            </div>
           </div>
         </section>
 
