@@ -4,6 +4,8 @@ import { signIn, useSession, signOut, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import Link from 'next/link';
 import axios from 'axios';
+import CreatePosts from '@/components/CreatePosts';
+import AllPosts from '@/components/AllPosts';
 
 export default function Home() {
   const router = useRouter()
@@ -42,6 +44,10 @@ export default function Home() {
             </div>
           </nav>
 
+        </section>
+        <section>
+          <AllPosts/>
+          <CreatePosts/>
         </section>
         <button onClick={signout}>sign out</button>
         {
