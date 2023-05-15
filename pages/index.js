@@ -48,7 +48,7 @@ export default function Home(allPosts) {
               <h1 className='text-purple-600 font-bold text-xl'>Postr</h1>
               <div>
                 {session ?
-                  <div>
+                  <div onClick={() => setProfile(!profile)}>
 
                     <p>Signed in as: {session && session?.user.email}</p>
                     <Image src={session?.user.image} alt={session?.user.name}/>
