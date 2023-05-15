@@ -2,10 +2,12 @@ import { useUserContext } from "@/hooks/hooks"
 import Image from "next/image"
 import { useState } from "react"
 import { MdArrowBackIos } from "react-icons/md"
+import {  useSession, getSession } from "next-auth/react"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
+  const { data: session, status } = useSession()
   const [textArea, setTextArea] = useState("")
   // const [id,setId] = useState(userData[0].id)
   // console.log(userData);
@@ -42,9 +44,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
           <div className="flex items-center w-full gap-2 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">
-              <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
+              <Image src={userData[0].image} alt={session?.image} fill className="absolute" />
             </div>
-            <p className="font-semibold">@{userData[0].name}</p>
+            <p className="font-semibold">@{session?.email}</p>
           </div>
 
           <div className="w-full">
