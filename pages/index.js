@@ -9,6 +9,7 @@ export default function Home() {
   const router = useRouter()
   const { data: session, status } = useSession()
   console.log(session);
+
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
   }
@@ -16,28 +17,39 @@ export default function Home() {
   if (status === "loading") {
     return (
       <>
-        <p>Loading stuff</p>
+        <p>Loading ...</p>
       </>
     )
   }
-  if (status === "unauthenticated") {
-    return (
-      <>
-        <p>No allowed access</p>
-        <Link href='/auth'>Sign in to access stuffs</Link>
-        {/* {response && response.data.map(data => <p key={data.id}>this is  age {data?.age}</p>)} */}
-
-      </>
-    )
-  }
+  // if (status === "unauthenticated") {
+  //   return (
+  //     <div className='flex items-center justify-center min-h-screen p-4'>
+  //       <p>No allowed access</p>
+  //       <Link href='/auth'>Sign in access this route</Link>
+  //     </div>
+  // <p>{session ? session?.user.email : "No user"}</p>
+  //   )
+  // }
 
   return (
     <>
-      <main className="h-full text-center space-y-2">
-        <p>{session ? session?.user.email : "No user"}</p>
+      <main className="h-full">
+        <section>
+          <nav>
+            <h1>Postr</h1>
+            <div>
+              {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'></Link></p>}
+            </div>
+          </nav>
+
+        </section>
         <button onClick={signout}>sign out</button>
+        {
+          status === "authenticated" ?
+            <div>You can create posts</div> :
+            <div>you cant create post yet</div>
+        }
         {/* <p>this is  age{data.age}</p> */}
-        <h1 className='text-2xl '>Lets Cook, this dou, its amazing</h1>
       </main>
     </>
   );
