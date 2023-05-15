@@ -1,5 +1,6 @@
 import { useUserContext } from "@/hooks/hooks"
 import Image from "next/image"
+import {MdArrowBackIos} from "react-icons/md"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
@@ -12,7 +13,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
       <div className="flex items-center justify-center h-full px-4 py-8">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
-          <div className="flex items-center justify-between w-full gap-4 mb-4">
+        <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos/></button>
+
+          <div className="flex items-center w-full gap-2 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">
               <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
             </div>
@@ -20,7 +23,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
           </div>
 
           <div className="w-full">
-            <textarea name="textarea" id="" cols="30" rows="10" className="border border-neutral-500 w-full rounded outline-purple-600" placeholder="postr away!!!"></textarea>
+            <textarea name="textarea" id="" cols="30" rows="8" className="border border-neutral-500 w-full rounded outline-purple-600 my-4 p-2" placeholder="postr away!!!"></textarea>
           </div>
 
           <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end bg-purple-500 text-white py-1 px-2 rounded shadow hover:bg-purple-600">Close modal</button>
