@@ -8,6 +8,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model tester {
+  id   String @id @default(uuid())
+  name String
+  age  Float
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
