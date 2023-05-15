@@ -88,7 +88,7 @@ export default function Home({ allPosts, user }) {
           <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create</button>
           {
             mobileCreate &&
-            <div className='fixed inset-0 z-50 backdrop-blur-lg'>
+            <div className='fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)]'>
               <div className=''>
 
                 <MobileCreate mobileCreate={mobileCreate} setMobileCreate={setMobileCreate} />
