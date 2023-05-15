@@ -8,7 +8,7 @@ const AllPosts = ({allPosts}) => {
       Posts
       {
         allPosts.map((post) => (
-          <SinglePosts key={post.id}/>
+          <SinglePosts key={post.id} post={post}/>
         ))
       }
     </div>

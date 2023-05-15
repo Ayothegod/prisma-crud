@@ -1,8 +1,10 @@
 
 
-const SinglePosts = () => {
+const SinglePosts = ({post}) => {
   return (
-    <div>SinglePosts</div>
+    <div>
+        <p>{post.postData}</p>
+    </div>
   )
 }
 
