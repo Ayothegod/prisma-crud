@@ -119,17 +119,14 @@ export default function Home({ allPosts, user }) {
 // }
 
 export async function getServerSideProps() {
-  const allPosts = await prisma.Post.findMany({
-    select: {
-      id: true,
-      userId: true,
-      postData: true
-    }
-  })
+  const allPosts = await prisma.Post.findMany()
   const user = await prisma.user.findMany()
 
   return {
-    props: { allPosts, user }
+    props: { 
+      allPosts : JSON.parse(JSON.stringify(allPosts)), 
+      user 
+    }
   }
 }
 
