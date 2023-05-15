@@ -1,13 +1,15 @@
 import { useUserContext } from "@/hooks/hooks"
 
 
-const MobileCreate = () => {
+const MobileCreate = ({mobileCreate,setMobileCreate}) => {
   const {userData} = useUserContext()
   console.log(userData)
   return (
     <div>
-      <input type="text" />
-      <input type="text" />
+      Hello
+      <input type="text" className="border" />
+      <input type="text" className="border"/>
+      <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button>
     </div>
   )
 }
