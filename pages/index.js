@@ -13,6 +13,7 @@ export default function Home(allPosts) {
   // console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
+  const [profile,setProfile] = useState(false)
   // console.log(session);
 
   const signout = () => {
@@ -50,6 +51,9 @@ export default function Home(allPosts) {
 
                     <p>Signed in as: {session && session?.user.email}</p>
                     <Image src={session?.user.image} alt={session?.user.name}/>
+                    {
+
+                    }
                   </div>
                   : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
               </div>
