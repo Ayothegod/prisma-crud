@@ -66,27 +66,18 @@ export default function Home({ allPosts, user }) {
         </section>
 
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
-          <div>
+          <div className=''>
 
-            <AllPosts />
-
-            <div className='hidden sm:block'>
-
-            <CreatePosts />
-            </div>
-             <button onClick={signout}>sign out</button>
-            {
-              status === "authenticated" ?
-                <div>You can create posts</div> :
-                <div>you cant create post yet</div>
-            }
-          </div>
-          <div className='hidden sm:block'>
             <div>
+              <AllPosts />
+            </div>
+            
+            <div className='hidden sm:block'>
               <DesktopCreate />
             </div>
           </div>
         </section>
+
 
         <section className='fixed bottom-4 right-4 sm:hidden'>
           <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create</button>
@@ -105,6 +96,7 @@ export default function Home({ allPosts, user }) {
   );
 }
 
+{/* <button onClick={signout}>sign out</button> */ }
 // export async function getServerSideProps({req}) {
 //   const session = await getSession({req})
 
@@ -128,10 +120,10 @@ export default function Home({ allPosts, user }) {
 
 export async function getServerSideProps() {
   const allPosts = await prisma.Post.findMany({
-    select:{
-      id:true,
-      userId:true,
-      postData:true
+    select: {
+      id: true,
+      userId: true,
+      postData: true
     }
   })
   const user = await prisma.user.findMany()
@@ -141,4 +133,4 @@ export async function getServerSideProps() {
   }
 }
 
-              {/* <button onClick={signout}>sign out</button> */}
+{/* <button onClick={signout}>sign out</button> */ }
