@@ -6,8 +6,7 @@ import { MdPassword } from "react-icons/md"
 import {  signIn ,useSession, signOut} from "next-auth/react"
 import { useRouter } from "next/router"
 
-const Auth = ({nameValue}) => {
-    console.log({nameValue});
+const Auth = () => {
     const [variant, setVariant] = useState("signin")
     const [loadSpinner, setLoadSpinner] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -23,8 +22,8 @@ const Auth = ({nameValue}) => {
             setVariant("signin")
         }
     }
-    
-    const submitForm = async () => {
+
+    const submitLoginForm = async () => {
         if(email.length > 1 && password.length > 1){
             const status = await signIn("credentials",{
                 redirect:false,
@@ -37,6 +36,10 @@ const Auth = ({nameValue}) => {
         } else{
             console.log("cant login empty values");
         }
+    }
+
+    const submitRegisterForm = async () => {
+        
     }
 
     const setAuth = () => {
@@ -75,10 +78,10 @@ const Auth = ({nameValue}) => {
                     </div>
 
                     {variant == "signin" ?
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitForm}>
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitLoginForm}>
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign in"}
                         </button> :
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitRegisterForm}>
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign up"}
                         </button>
                     }
