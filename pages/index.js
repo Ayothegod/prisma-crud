@@ -12,7 +12,7 @@ import Profile from '@/components/Profile';
 import DesktopCreate from '@/components/DesktopCreate';
 import MobileCreate from '@/components/MobileCreate';
 
-export default function Home(allPosts) {
+export default function Home({allPosts,user}) {
   // console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
@@ -31,7 +31,7 @@ export default function Home(allPosts) {
       </>
     )
   }
-  
+
   return (
     <>
       <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
@@ -111,8 +111,9 @@ export default function Home(allPosts) {
 
 export async function getServerSideProps() {
   const allPosts = await prisma.Post.findMany()
+  const user = await prisma.user.findMany()
 
   return {
-    props: { allPosts }
+    props: { allPosts,user }
   }
 }
