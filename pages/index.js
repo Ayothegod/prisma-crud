@@ -13,7 +13,7 @@ import DesktopCreate from '@/components/DesktopCreate';
 import MobileCreate from '@/components/MobileCreate';
 
 export default function Home({allPosts,user}) {
-  console.log(user)
+  // console.log(user)
   const router = useRouter()
   const { data: session, status } = useSession()
   const [profile, setProfile] = useState(false)
@@ -42,10 +42,10 @@ export default function Home({allPosts,user}) {
               <h1 className='text-white font-bold text-xl'>Postr</h1>
               <div>
                 {session ?
-                  <div onClick={() => setProfile(!profile)}>
+                  <div onClick={() => setProfile(!profile)} className='flex items-center gap-2'>
 
                     <p>Signed in as: {session && session?.user.email}</p>
-                    <div className="h-10 w-10 relative">
+                    <div className="h-10 w-10 relative rounded-full overflow-hidden">
 
                     <Image src={session?.user.image} alt={session?.user.name} fill className='absolute' />
                     </div>
@@ -60,7 +60,7 @@ export default function Home({allPosts,user}) {
 
         </section>
 
-        <section className='mt-14 max-w-[62rem] mx-auto'>
+        <section className='mt-20 max-w-[62rem] mx-auto px-2'>
           <div>
 
             <AllPosts />
