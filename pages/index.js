@@ -42,10 +42,10 @@ export default function Home(allPosts) {
     <>
       <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
         <section className='flex items-center justify-center'>
-          <nav className='bg-[#929292] shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
+          <nav className='bg-purple-500 shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
             <div className='flex text-white items-center justify-between md:w-1/2 md:mx-auto'>
 
-              <h1 className='text-purple-600 font-bold text-xl'>Postr</h1>
+              <h1 className='text-white font-bold text-xl'>Postr</h1>
               <div>
                 {session ?
                   <div onClick={() => setProfile(!profile)}>
@@ -66,13 +66,14 @@ export default function Home(allPosts) {
         <section className='mt-14 max-w-[62rem] mx-auto'>
           <AllPosts />
           <CreatePosts />
-        </section>
-        <button onClick={signout}>sign out</button>
+          <button onClick={signout}>sign out</button>
         {
           status === "authenticated" ?
             <div>You can create posts</div> :
             <div>you cant create post yet</div>
         }
+        </section>
+        
       </main>
     </>
   );
