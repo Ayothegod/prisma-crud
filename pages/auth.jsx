@@ -39,7 +39,19 @@ const Auth = () => {
     }
 
     const submitRegisterForm = async () => {
-        
+        if(email.length > 1 && password.length > 1 && name.length > 1){
+            // const status = await signIn("credentials",{
+            //     redirect:false,
+            //     email:email,
+            //     password:password,
+            //     callbackUrl:"/"
+            // })
+
+            // console.log(status)
+            console.log("ok, you can goo");
+        } else{
+            console.log("cant login empty values");
+        }
     }
 
     const setAuth = () => {
