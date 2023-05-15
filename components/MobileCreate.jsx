@@ -4,7 +4,9 @@ import Image from "next/image"
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
-  console.log(userData)
+  // console.log(userData)
+
+
   return (
     <div className="text-black h-screen  ">
       <div className="flex items-center justify-center h-full px-4 py-8">
@@ -15,6 +17,10 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
               <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
             </div>
             <p className="font-semibold">@{userData[0].name}</p>
+          </div>
+
+          <div>
+            <input type="text" />
           </div>
 
           <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end">Close modal</button>
