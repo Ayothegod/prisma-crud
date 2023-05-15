@@ -6,8 +6,10 @@ import Link from 'next/link';
 import axios from 'axios';
 import CreatePosts from '@/components/CreatePosts';
 import AllPosts from '@/components/AllPosts';
+import prisma from '@/lib/prisma';
 
-export default function Home() {
+export default function Home(allPosts) {
+  console.log({allPosts})
   const router = useRouter()
   const { data: session, status } = useSession()
   console.log(session);
@@ -80,3 +82,11 @@ export default function Home() {
 //     }
 //   }
 // }
+
+export async function getServerSideProps(){
+  const allPosts = await prisma.Post.findMany()
+
+  return {
+    props:{allPosts }
+  }
+}
