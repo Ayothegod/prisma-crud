@@ -7,7 +7,9 @@ const MobileCreate = ({mobileCreate,setMobileCreate}) => {
   console.log(userData)
   return (
     <div className="text-white h-screen">
-      <div className="flex items-center flex-col justify-center h-full bg-white">
+      <div className="flex items-center justify-center h-full">
+        <div className="bg-white flex items-center flex-col justify-center">
+
 
       <div className="flex items-center gap-4">
 
@@ -21,6 +23,7 @@ const MobileCreate = ({mobileCreate,setMobileCreate}) => {
       <input type="text" className="border" />
       <input type="text" className="border"/>
       <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button>
+        </div>
       </div>
     </div>
   )
