@@ -23,9 +23,17 @@ const Auth = ({nameValue}) => {
             setVariant("signin")
         }
     }
-    const submitInputs = () => {
+    
+    const submitForm = async () => {
         if(email.length > 1 && password.length > 1){
-            console.log(email,password)
+            const status = await signIn("credentials",{
+                redirect:false,
+                email:email,
+                password:password,
+                callbackUrl:"/"
+            })
+
+            console.log(status)
         } else{
             console.log("cant login empty values");
         }
@@ -67,10 +75,10 @@ const Auth = ({nameValue}) => {
                     </div>
 
                     {variant == "signin" ?
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitInputs}>
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitForm}>
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign in"}
                         </button> :
-                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center" onClick={submitInputs}>
+                        <button className="cursor-pointer rounded w-full bg-purple-600 text-white px-4 py-1 font-semibold my-4 hover:bg-purple-400 grid place-items-center">
                             {loadSpinner ? <AiOutlineLoading3Quarters className="text-xl fnt-bold animate-spin" /> : "sign up"}
                         </button>
                     }
