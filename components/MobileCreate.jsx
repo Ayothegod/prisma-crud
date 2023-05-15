@@ -1,11 +1,27 @@
 import { useUserContext } from "@/hooks/hooks"
 import Image from "next/image"
+import { useState } from "react"
 import {MdArrowBackIos} from "react-icons/md"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
+  const [textArea, setTextArea] = useState("")
   // console.log(userData)
+
+  const createPost = async() => {
+    try {
+      const body = {
+        textArea,id:userData.id,name:userData.name
+      }
+      // await fetch("/api/routes",{
+
+      // })
+      console.log(body)
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
 
   return (
@@ -23,10 +39,10 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
           </div>
 
           <div className="w-full">
-            <textarea name="textarea" id="" cols="30" rows="8" className="border border-neutral-500 w-full rounded outline-purple-600 my-4 p-2" placeholder="postr away!!!"></textarea>
+            <textarea name="textarea" id="" cols="30" rows="8" className="border border-neutral-500 w-full rounded outline-purple-600 my-4 p-2" placeholder="postr away!!!" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
           </div>
 
-          <button onClick={() => setMobileCreate(!mobileCreate)} className="self-end bg-purple-500 text-white py-1 px-2 rounded shadow hover:bg-purple-600">Close modal</button>
+          <button onClick={createPost} className="self-end bg-purple-500 text-white py-1 px-2 rounded shadow hover:bg-purple-600">Post</button>
 
         </div>
       </div>
