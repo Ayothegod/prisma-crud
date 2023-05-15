@@ -86,7 +86,7 @@ export default function Home(allPosts) {
         </section>
 
         <section className='fixed bottom-4 right-4 sm:hidden'>
-          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700'>Create</button>
+          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create</button>
           {
             mobileCreate && 
             <MobileCreate/>
