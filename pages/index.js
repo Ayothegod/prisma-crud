@@ -7,6 +7,7 @@ import axios from 'axios';
 import CreatePosts from '@/components/CreatePosts';
 import AllPosts from '@/components/AllPosts';
 import prisma from '@/lib/prisma';
+import Image from 'next/image';
 
 export default function Home(allPosts) {
   // console.log({allPosts})
@@ -44,7 +45,13 @@ export default function Home(allPosts) {
 
               <h1 className='text-purple-600 font-bold text-xl'>Postr</h1>
               <div>
-                {session ? <p>Signed in as: {session && session?.user.email}</p> : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
+                {session ?
+                  <div>
+
+                    <p>Signed in as: {session && session?.user.email}</p>
+                    <Image src={session?.user.image} alt={session?.user.name}/>
+                  </div>
+                  : <p>Not signed in yet? <Link href='/auth'>sign-in</Link></p>}
               </div>
             </div>
           </nav>
