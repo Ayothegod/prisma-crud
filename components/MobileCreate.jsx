@@ -7,15 +7,18 @@ const MobileCreate = ({mobileCreate,setMobileCreate}) => {
   console.log(userData)
   return (
     <div className="text-white">
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center flex-col justify-center h-screen">
       <div>
         <div className="w-10 h-10 relative">
 
-        {/* <Image src={userData?.Image} alt="hello" fill className="absolute"/> */}
+        <Image src={userData[0].image} alt={userData[0].name} fill className="absolute"/>
         </div>
       </div>
       {userData && 
+      <div className="flex flex-col">
       <p className="p-4">{userData[0].name} bruh</p>
+      <p className="p-4">{userData[0].email} bruh</p>
+      </div>
       }
       <input type="text" className="border" />
       <input type="text" className="border"/>
