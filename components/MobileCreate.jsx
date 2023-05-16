@@ -4,6 +4,7 @@ import { useState } from "react"
 import { MdArrowBackIos } from "react-icons/md"
 import {  useSession, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
+import usePost from "@/hooks/usePost"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
@@ -32,7 +33,6 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         body: JSON.stringify(body)
       })
       setTextArea("")
-      // router.push("/")
       window.location = "/"
       }
     } catch (error) {

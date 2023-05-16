@@ -15,13 +15,14 @@ const usePost = (body) => {
                 body: JSON.stringify(body)
             })
             console.log(response);
+            console.log({response});
             setLoading(false)
         } catch (error) {
             setError(error.message)
         }
     }
 
-    return {data,loading,error};
+    return {loading,error};
 }
 
 export default usePost
