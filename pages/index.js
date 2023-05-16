@@ -125,9 +125,11 @@ export async function getServerSideProps() {
       updatedAt:true,
       user:{
         select:{
-          image:true
+          image:true,
+          name:true
         }
-      }
+      },
+      comments:true,
     }
 })
   const user = await prisma.user.findMany()
