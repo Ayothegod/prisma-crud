@@ -13,7 +13,7 @@ const AllPosts = ({allPosts}) => {
           <SinglePosts key={post.id} post={post}/>
         ))
       }
-      {
+      {/* {
         allPosts.map((post) => (
           <SinglePosts key={post.id} post={post}/>
         ))
@@ -22,7 +22,7 @@ const AllPosts = ({allPosts}) => {
         allPosts.map((post) => (
           <SinglePosts key={post.id} post={post}/>
           ))
-        }
+        } */}
         </div>
     </div>
   )

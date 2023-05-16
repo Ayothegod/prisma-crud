@@ -10,7 +10,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
   const router = useRouter()
   const { data: session, status } = useSession()
-  console.log(session);
+  // console.log(session);
   const [textArea, setTextArea] = useState("")
   // const [id,setId] = useState(userData[0].id)
   // console.log(userData);
@@ -31,7 +31,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         },
         body: JSON.stringify(body)
       })
-      router.push("/")
+      setTextArea("")
+      // router.push("/")
+      window.location("/")
       }
     } catch (error) {
       console.log(error.message);
