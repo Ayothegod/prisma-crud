@@ -13,10 +13,19 @@ import DesktopCreate from '@/components/DesktopCreate';
 import MobileCreate from '@/components/MobileCreate';
 import { useUserContext } from '@/hooks/hooks';
 
-export default function Home({ allPosts, user }) {
+export default function Home({ posts, user }) {
   const router = useRouter()
   const { userData, setUserData } = useUserContext()
+  const { allPosts, setAllPosts } = useState([])
   // console.log(allPosts)
+
+
+  useEffect(() => {
+    const what = () => {
+      console.log("what!!!");
+      setAllPosts(posts)
+    }
+  }, [posts])
 
   useEffect(() => {
     setUserData(user)
@@ -40,7 +49,8 @@ export default function Home({ allPosts, user }) {
 
   return (
     <>
-      <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
+    <p>Hello</p>
+      {/* <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
         <section className='flex items-center justify-center'>
           <nav className='bg-purple-500 shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
             <div className='flex text-white items-center justify-between md:w-2/3 md:mx-auto'>
@@ -69,9 +79,7 @@ export default function Home({ allPosts, user }) {
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
           <div className=' flex gap-2'>
 
-            {/* <div className=''></div> */}
             <AllPosts allPosts={allPosts} />
-            {/* <div className='hidden sm:block '></div> */}
             <DesktopCreate />
 
           </div>
@@ -92,7 +100,7 @@ export default function Home({ allPosts, user }) {
             </div>
           }
         </section>
-      </main>
+      </main> */}
     </>
   );
 }
@@ -140,7 +148,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      allPosts: JSON.parse(JSON.stringify(allPosts)),
+      posts: JSON.parse(JSON.stringify(allPosts)),
       user
     }
   }
