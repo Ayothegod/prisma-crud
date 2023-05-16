@@ -3,10 +3,12 @@ import Image from "next/image"
 import { useState } from "react"
 import { MdArrowBackIos } from "react-icons/md"
 import {  useSession, getSession } from "next-auth/react"
+import { useRouter } from "next/router"
 
 
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
+  const router = useRouter()
   const { data: session, status } = useSession()
   console.log(session);
   const [textArea, setTextArea] = useState("")
@@ -29,7 +31,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         },
         body: JSON.stringify(body)
       })
-      console.log(response)
+      router.push("/")
       }
     } catch (error) {
       console.log(error.message);
