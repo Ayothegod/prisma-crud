@@ -13,7 +13,7 @@ const SinglePosts = ({ post }) => {
 
                 <div className="flex items-center w-full gap-2">
                     <p className="font-medium ">{post.user.name}</p>
-                    <p className="">{ format(new Date(), 'yyyy-MM-dd')}</p>
+                    <p className="">{post.createdAt.slice(0,10)}</p>
                 </div>
                 <div>
                     <p>{post.postData}</p>
