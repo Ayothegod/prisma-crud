@@ -66,7 +66,7 @@ export default function Home({ allPosts, user }) {
         </section>
 
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
-          <div className=' flex '>
+          <div className=' flex gap-2'>
 
             {/* <div className=''></div> */}
               <AllPosts allPosts={allPosts} />
