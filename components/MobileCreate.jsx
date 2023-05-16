@@ -22,7 +22,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         postData(body)
       // console.log(response);
       setTextArea("")
-      // window.location = "/"
+      window.location = "/"
       }
     } catch (error) {
       console.log(error.message);
