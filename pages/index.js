@@ -83,7 +83,7 @@ export default function Home({ allPosts, user }) {
 
           {
             mobileCreate &&
-            <div className='fixed inset-0 z-[999] bg-[rgba(0,0,0,0.7)] w-full'>
+            <div className='fixed inset-0 min-h-screen z-[999] bg-[rgba(0,0,0,0.7)] w-full'>
 
               <div className=''>
                 <MobileCreate mobileCreate={mobileCreate} setMobileCreate={setMobileCreate} />

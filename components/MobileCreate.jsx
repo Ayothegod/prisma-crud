@@ -40,8 +40,21 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
     }
   }
 
+  if(status === "unauthenticated"){
+    return (
+      <div className="text-white flex items-center p-4 justify-center h-screen">
+        <div>
+
+        <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos /></button>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, ab suscipit nesciunt soluta, id unde sunt, distinctio enim itaque fugit accusantium nisi vero voluptates architecto omnis. Illum excepturi velit impedit.
+        <button>sign in</button>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="text-black h-screen  ">
+    <div className="text-black  ">
       <div className="flex items-center justify-center h-full px-4 py-8">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
