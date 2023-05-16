@@ -14,6 +14,7 @@ import MobileCreate from '@/components/MobileCreate';
 import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({ allPosts, user }) {
+  const router = useRouter()
   const { userData, setUserData } = useUserContext()
   // console.log(allPosts)
 
@@ -69,22 +70,25 @@ export default function Home({ allPosts, user }) {
           <div className=' flex gap-2'>
 
             {/* <div className=''></div> */}
-              <AllPosts allPosts={allPosts} />
+            <AllPosts allPosts={allPosts} />
             {/* <div className='hidden sm:block '></div> */}
-              <DesktopCreate />
-            
+            <DesktopCreate />
+
           </div>
         </section>
 
         <section className='fixed bottom-4 right-4 sm:hidden'>
-          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create</button>
+
+          <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create post</button>
+
           {
             mobileCreate &&
             <div className='fixed inset-0 z-[999] bg-[rgba(0,0,0,0.7)] w-full'>
-              <div className=''>
 
+              <div className=''>
                 <MobileCreate mobileCreate={mobileCreate} setMobileCreate={setMobileCreate} />
               </div>
+
             </div>
           }
         </section>
@@ -121,23 +125,23 @@ export async function getServerSideProps() {
       id: true,
       userId: true,
       postData: true,
-      createdAt:true,
-      updatedAt:true,
-      user:{
-        select:{
-          image:true,
-          name:true
+      createdAt: true,
+      updatedAt: true,
+      user: {
+        select: {
+          image: true,
+          name: true
         }
       },
-      comments:true,
+      comments: true,
     }
-})
+  })
   const user = await prisma.user.findMany()
 
   return {
-    props: { 
-      allPosts : JSON.parse(JSON.stringify(allPosts)), 
-      user 
+    props: {
+      allPosts: JSON.parse(JSON.stringify(allPosts)),
+      user
     }
   }
 }
