@@ -20,8 +20,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
       } else {
         const body = await { textArea, id:userData[0].id }
         postData(body)
+      // console.log(response);
       setTextArea("")
-      window.location = "/"
+      // window.location = "/"
       }
     } catch (error) {
       console.log(error.message);

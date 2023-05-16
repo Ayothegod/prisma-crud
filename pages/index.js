@@ -119,7 +119,7 @@ export default function Home({ allPosts, user }) {
 //   }
 // }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const allPosts = await prisma.Post.findMany({
     select: {
       id: true,
