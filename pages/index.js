@@ -41,8 +41,8 @@ export default function Home({ allPosts, user }) {
     <>
       <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
         <section className='flex items-center justify-center'>
-          <nav className='bg-purple-500 shadow-lg z-1 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
-            <div className='flex text-white items-center justify-between md:w-1/2 md:mx-auto'>
+          <nav className='bg-purple-500 shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>
+            <div className='flex text-white items-center justify-between md:w-2/3 md:mx-auto'>
 
               <h1 className='text-white font-bold text-xl'>Postr</h1>
               <div>
@@ -80,7 +80,7 @@ export default function Home({ allPosts, user }) {
           <button className='bg-purple-500 text-white font-semibold px-2 py-2 rounded shadow-md hover:bg-purple-700' onClick={() => setMobileCreate(!mobileCreate)}>Create</button>
           {
             mobileCreate &&
-            <div className='fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] w-full'>
+            <div className='fixed inset-0 z-[999] bg-[rgba(0,0,0,0.7)] w-full'>
               <div className=''>
 
                 <MobileCreate mobileCreate={mobileCreate} setMobileCreate={setMobileCreate} />

@@ -33,7 +33,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
       })
       setTextArea("")
       // router.push("/")
-      window.location("/")
+      window.location = "/"
       }
     } catch (error) {
       console.log(error.message);
