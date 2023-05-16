@@ -46,7 +46,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         <div>
 
         <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos /></button>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, ab suscipit nesciunt soluta, id unde sunt, distinctio enim itaque fugit accusantium nisi vero voluptates architecto omnis. Illum excepturi velit impedit.
+        <p>cant post, you are not logged in</p>
         <button>sign in</button>
         </div>
       </div>
