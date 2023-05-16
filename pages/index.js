@@ -16,16 +16,14 @@ import { useUserContext } from '@/hooks/hooks';
 export default function Home({ posts, user }) {
   const router = useRouter()
   const { userData, setUserData } = useUserContext()
-  const { allPosts, setAllPosts } = useState([])
+  const [ allPosts, setAllPosts ] = useState([])
   // console.log(allPosts)
 
 
   useEffect(() => {
-    const what = () => {
-      console.log("what!!!");
-      setAllPosts(posts)
-    }
+    setAllPosts(posts)
   }, [posts])
+  console.log(allPosts);
 
   useEffect(() => {
     setUserData(user)
