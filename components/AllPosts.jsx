@@ -5,12 +5,25 @@ const AllPosts = ({allPosts}) => {
   console.log(allPosts);
   return (
     <div className="w-full sm:w-2/3">
-      Posts
+      <p>Your Feed</p>
+      <div>
+
       {
         allPosts.map((post) => (
           <SinglePosts key={post.id} post={post}/>
         ))
       }
+      {
+        allPosts.map((post) => (
+          <SinglePosts key={post.id} post={post}/>
+        ))
+      }
+      {
+        allPosts.map((post) => (
+          <SinglePosts key={post.id} post={post}/>
+          ))
+        }
+        </div>
     </div>
   )
 }
