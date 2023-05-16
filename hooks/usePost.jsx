@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const usePost = (body) => {
+const usePost = () => {
     const [data,setData] = useState("")
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState("")
@@ -14,15 +14,19 @@ const usePost = (body) => {
                 },
                 body: JSON.stringify(body)
             })
+
+            if(!response.ok){
+                throw new Error("request failed")
+            }
+
             console.log(response);
-            console.log({response});
             setLoading(false)
         } catch (error) {
             setError(error.message)
         }
     }
 
-    return {loading,error};
+    return {loading,error,postData};
 }
 
 export default usePost

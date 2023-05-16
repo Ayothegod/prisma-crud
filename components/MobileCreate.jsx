@@ -6,32 +6,20 @@ import {  useSession, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import usePost from "@/hooks/usePost"
 
-
 const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   const { userData } = useUserContext()
   const router = useRouter()
   const { data: session, status } = useSession()
-  // console.log(session);
   const [textArea, setTextArea] = useState("")
-  // const [id,setId] = useState(userData[0].id)
-  // console.log(userData);
-  // console.log(id);
-
-  // console.log(userData)
-
+  const {loading,error,postData} = usePost()
+  
   const createPost = async () => {
     try {
       if(textArea.length < 1){
         console.log("cant create empty content");
       } else {
         const body = await { textArea, id:userData[0].id }
-      const response = await fetch("/api/routes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-      })
+        postData(body)
       setTextArea("")
       window.location = "/"
       }
