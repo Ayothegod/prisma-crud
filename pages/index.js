@@ -117,7 +117,7 @@ export default function Home({ allPosts, user }) {
 //   }
 // }
 
-// add controller
+// add controller, and learn stuff
 export async function getStaticProps() {
   const allPosts = await prisma.Post.findMany({
     select: {
