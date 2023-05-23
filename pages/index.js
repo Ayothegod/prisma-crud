@@ -6,7 +6,6 @@ import Link from 'next/link';
 import axios from 'axios';
 import CreatePosts from '@/components/CreatePosts';
 import AllPosts from '@/components/AllPosts';
-import prisma from '@/lib/prisma';
 import Image from 'next/image';
 import Profile from '@/components/Profile';
 import DesktopCreate from '@/components/DesktopCreate';
@@ -15,16 +14,12 @@ import { useUserContext } from '@/hooks/hooks';
 
 export default function Home({ allPosts, user }) {
   const router = useRouter()
-  const { userData, setUserData } = useUserContext()
+  // const { userData, setUserData } = useUserContext()
 
-  useEffect(() => {
-    setUserData(user)
-  }, [])
   const { data: session, status } = useSession()
+
   const [profile, setProfile] = useState(false)
   const [mobileCreate, setMobileCreate] = useState(false)
-  // console.log(session);
-
   const signout = () => {
     signOut({ callbackUrl: 'http://localhost:3000/auth' })
   }
@@ -68,7 +63,7 @@ export default function Home({ allPosts, user }) {
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
           <div className=' flex gap-2'>
 
-            <AllPosts allPosts={allPosts} />
+            <AllPosts/>
             <DesktopCreate />
 
           </div>
