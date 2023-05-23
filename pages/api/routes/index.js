@@ -5,8 +5,23 @@ export default async function handler(req, res) {
 
     if( req.method === "GET"){
         try {
-            const allUsers = await prisma.tester.findMany()
-            res.json(allUsers)
+            const allPosts = await prisma.Post.findMany({
+                select: {
+                    id: true,
+                    userId: true,
+                    postData: true,
+                    createdAt: true,
+                    updatedAt: true,
+                    user: {
+                      select: {
+                        image: true,
+                        name: true
+                      }
+                    },
+                    comments: true,
+                  }
+            })
+            res.json(allPosts)
         } catch (error) {
             res.status(404).json(error.message)
         }

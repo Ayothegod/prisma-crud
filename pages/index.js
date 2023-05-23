@@ -116,30 +116,3 @@ export default function Home({ allPosts, user }) {
 //   }
 // }
 
-// add controller, and learn stuff
-export async function getStaticProps() {
-  const allPosts = await prisma.Post.findMany({
-    select: {
-      id: true,
-      userId: true,
-      postData: true,
-      createdAt: true,
-      updatedAt: true,
-      user: {
-        select: {
-          image: true,
-          name: true
-        }
-      },
-      comments: true,
-    }
-  })
-  const user = await prisma.user.findMany()
-
-  return {
-    props: {
-      allPosts: JSON.parse(JSON.stringify(allPosts)),
-      user
-    }
-  }
-}
