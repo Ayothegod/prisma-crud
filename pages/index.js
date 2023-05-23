@@ -144,5 +144,3 @@ export async function getStaticProps() {
     }
   }
 }
-
-{/* <button onClick={signout}>sign out</button> */ }
