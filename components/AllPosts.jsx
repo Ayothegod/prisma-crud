@@ -23,7 +23,7 @@ const AllPosts = () => {
 
 
   return (
-    <div className="w-2/3 sm:w-2/3 ">
+    <div className="w-full sm:w-2/3 ">
       <p className="text-xl font-semibold md:text-2xl">Your Feed</p>
       <div className="flex flex-col gap-1 ">
       {
