@@ -30,6 +30,9 @@ const AllPosts = () => {
         loading && "Data is fetching"
       }
       {
+        posts.length < 1 && "No POSTS TO DISPLAY"
+      }
+      {
         posts.map((post) => (
           <SinglePosts key={post.id} post={post}/>
         ))
