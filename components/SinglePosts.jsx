@@ -1,8 +1,10 @@
 import Image from "next/image"
 import { compareAsc, format } from 'date-fns'
 import { BsThreeDotsVertical } from "react-icons/bs"
+import { useState } from "react"
 
 const SinglePosts = ({ post }) => {
+    const [popup,setPopup] = useState(false)
     // const prismaDate = post.createdAt.slice(0,10)
     // const date = format(new Date(), 'yyyy-MM-dd')
     // console.log(date - prismaDate)
@@ -28,6 +30,7 @@ const SinglePosts = ({ post }) => {
             <div className="absolute right-2" >
                 <BsThreeDotsVertical/>
             </div>
+
         </div>
     )
 }
