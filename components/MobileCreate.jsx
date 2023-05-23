@@ -57,7 +57,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
           </div>
 
           <div className="w-full">
-            <textarea name="textarea" id="" cols="30" rows="8" className="border border-neutral-500 w-full rounded outline-purple-600 my-4 p-2" placeholder="postr away!!!" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
+            <textarea name="textarea" id="" cols="40" rows="8" className="border border-neutral-500 w-full rounded outline-purple-600 p-2" placeholder="postr away!!!" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
           </div>
 
           <button onClick={createPost} className="self-end bg-purple-500 text-white py-1 px-2 rounded shadow hover:bg-purple-600">Post</button>
