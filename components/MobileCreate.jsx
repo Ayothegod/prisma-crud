@@ -2,7 +2,7 @@ import { useUserContext } from "@/hooks/hooks"
 import Image from "next/image"
 import { useState } from "react"
 import { MdArrowBackIos } from "react-icons/md"
-import {  useSession, getSession } from "next-auth/react"
+import {  useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import usePost from "@/hooks/usePost"
 
@@ -18,9 +18,8 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
       if(textArea.length < 1){
         console.log("cant create empty content");
       } else {
-        const body = await { textArea, id:userData[0].id }
+        const body = await { textArea, id:session.user.id }
         postData(body)
-      // console.log(response);
       setTextArea("")
       window.location = "/"
       }
@@ -43,7 +42,14 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   }
 
   return (
+    <div className="flex items-center fixed inset-0 justify-center h-screen bg-[rgba(0,0,0,0.9)] w-screen ">
+
     <div className="text-black  ">
+
+    {/* <div className="bg-white p-8 border-4 h-full w-full">
+          Hello
+        </div> */}
+
       <div className="flex items-center justify-center h-full px-4 py-8">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
@@ -51,7 +57,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
           <div className="flex items-center w-full gap-2 mb-4">
             <div className="w-8 h-8 relative rounded-full overflow-hidden">
-              <Image src={userData[0].image} alt={session?.user.image} fill className="absolute" />
+              <Image src={session.user.image} alt={session?.user.image} fill className="absolute" />
             </div>
             <p className="font-semibold">@{session?.user.name}</p>
           </div>
@@ -64,6 +70,8 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 
         </div>
       </div>
+
+    </div>
     </div>
   )
 }
