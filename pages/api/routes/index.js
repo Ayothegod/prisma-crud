@@ -5,6 +5,7 @@ export default async function handler(req, res) {
 
     if( req.method === "GET"){
         try {
+            await prisma.Post.deleteMany()
             const allPosts = await prisma.Post.findMany({
                 select: {
                     id: true,
