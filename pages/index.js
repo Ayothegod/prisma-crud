@@ -39,7 +39,6 @@ export default function Home({ allPosts, user }) {
 
   return (
     <>
-    <p>Hello</p>
       <main className="min-h-screen bg-[#f4f4f4] text-[#383838]">
         <section className='flex items-center justify-center'>
           <nav className='bg-purple-500 shadow-lg z-10 rounded py-2 px-2 fixed top-2 w-11/12 mx-auto'>

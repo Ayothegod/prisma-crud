@@ -118,12 +118,3 @@ const Auth = () => {
     )
 }
 export default Auth
-
-// export async function getStaticProps() {
-//     const name = await name
-//     return {
-//         props:{ nameValue
-
-//         }
-//     }
-// }
