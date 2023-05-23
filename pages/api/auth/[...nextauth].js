@@ -33,6 +33,7 @@ export default NextAuth({
   callbacks: {
     async session({ session, token, user }) {
       // session.accessToken = token.accessToken
+      console.log("SESSION CALLED");
       if(user){
 
         session.user.id = user.id
