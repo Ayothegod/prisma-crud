@@ -1,6 +1,5 @@
 import '@/styles/globals.css'
 import Head from 'next/head'
-import { Toaster } from "@/n/ui/toaster"
 
 import { UserContextProvider } from '../hooks/hooks'
 import { SessionProvider } from "next-auth/react"
