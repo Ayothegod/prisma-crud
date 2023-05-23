@@ -42,15 +42,9 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   }
 
   return (
-    <div className="flex items-center fixed inset-0 justify-center h-screen bg-[rgba(0,0,0,0.9)] w-screen ">
+    <div className="fixed inset-0 flex items-center justify-center h-screen bg-[rgba(0,0,0,0.9)] w-screen ">
 
-    <div className="text-black  ">
-
-    {/* <div className="bg-white p-8 border-4 h-full w-full">
-          Hello
-        </div> */}
-
-      <div className="flex items-center justify-center h-full px-4 py-8">
+      <div className="">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
 
           <button onClick={() => setMobileCreate(!mobileCreate)} className="self-start bg-purple-500 text-white text-xl py-2 px-2 rounded shadow hover:bg-purple-600 mb-2"><MdArrowBackIos /></button>
@@ -71,7 +65,6 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
         </div>
       </div>
 
-    </div>
     </div>
   )
 }
