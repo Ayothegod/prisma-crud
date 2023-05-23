@@ -17,6 +17,7 @@ export default function Home({ allPosts, user }) {
   // const { userData, setUserData } = useUserContext()
 
   const { data: session, status } = useSession()
+  console.log(session)
 
   const [profile, setProfile] = useState(false)
   const [mobileCreate, setMobileCreate] = useState(false)
@@ -63,8 +64,8 @@ export default function Home({ allPosts, user }) {
         <section className='mt-20 max-w-[62rem] mx-auto px-2'>
           <div className=' flex gap-2'>
 
-            <AllPosts/>
-            <DesktopCreate />
+            {/* <AllPosts/> */}
+            {/* <DesktopCreate /> */}
 
           </div>
         </section>
