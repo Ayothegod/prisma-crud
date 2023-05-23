@@ -42,7 +42,7 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center h-screen bg-[rgba(0,0,0,0.9)] w-screen ">
+    <div className="fixed inset-0 flex items-center justify-center  h-screen bg-[rgba(0,0,0,0.9)] w-screen ">
 
       <div className="">
         <div className="bg-white w-full h-full flex items-center flex-col justify-center p-4 rounded shadow-md ">
@@ -70,17 +70,3 @@ const MobileCreate = ({ mobileCreate, setMobileCreate }) => {
 }
 
 export default MobileCreate
-
-
-{/* <div className="flex items-center justify-between w-full gap-4 mb-4">
-
-</div> */}
-{/* 
-  <div className="w-8 h-8 relative rounded-full overflow-hidden">
-  <Image src={userData[0].image} alt={userData[0].name} fill className="absolute" />
-  </div>
-  <p className="font-semibold">@{userData[0].name}</p> */}
-
-
-
-  {/* <button onClick={() => setMobileCreate(!mobileCreate)}>Close modal</button> */ }
