@@ -28,8 +28,21 @@ export default NextAuth({
 
         return result;
       }
-    })
-    
+    }),
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      // session.accessToken = token.accessToken
+      if(user){
+
+        session.user.id = user.id
+        session.user.emailVerified = user.emailVerified
+        session.user.password = user.password
+      }
+      
+      return session
+    }
+  }
+
 });
 
