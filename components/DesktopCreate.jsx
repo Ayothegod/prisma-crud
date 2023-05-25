@@ -17,7 +17,7 @@ const DesktopCreate = () => {
         const body = await { textArea, id:session.user.id}
         postData(body)
       setTextArea("")
-      window.location = "/"
+      // window.location = "/"
       }
     } catch (error) {
       console.log(error.message);

@@ -18,7 +18,7 @@ const AllPosts = () => {
     } catch (error) {
       setError(error.message)
     }
-  },[])
+  },[setPosts])
   console.log(posts)
 
 
