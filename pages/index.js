@@ -1,9 +1,8 @@
-import { signIn, useSession, signOut, getSession } from "next-auth/react"
+// import { signIn, useSession, signOut, getSession } from "next-auth/react"
 import Link from 'next/link';
 import axios from 'axios';
 
 export default function Home() {
-  const { data: session, status } = useSession()
   
   return (
     <>
