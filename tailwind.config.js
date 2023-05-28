@@ -8,16 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        blue: "#1fb6ff",
-        "blue-dark": "#407bff",
-        green: "#13ce66",
-        torque: "#cbfff2",
-        light: "#dceaff",
-        "gray-dark": "#273444",
-        gray: "#8492a6",
-        "gray-light": "#d3dce6",
-      },
       spacing: {
         xl: "4rem",
         "1xl": "8rem",
