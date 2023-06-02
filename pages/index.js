@@ -20,6 +20,7 @@ export default function Home() {
           <div key={data.id} className='flex gap-4'>
             <p className='font-bold text-lg'>{data.name}</p>
             <p>{data.email}</p>
+            <p>{data.id}</p>
           </div>
         ))
       }
