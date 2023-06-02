@@ -13,7 +13,7 @@ const pool = new Pool({
 export default async function handler(req, res) {
     try {
         const data = await pool.query("SELECT * FROM data")
-        console.log(data.rows);
+        // console.log(data.rows);
         res.status(200).json(data.rows)
     } catch (error) {
         res.status(404).json(error.message)
