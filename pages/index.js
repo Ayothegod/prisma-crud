@@ -2,12 +2,13 @@
 import Link from 'next/link';
 import axios from 'axios';
 import useSWR from "swr"
+// import prisma from '@/db/prisma';
 
 export default function Home() {
+  // console.log({value});
   
   const fetcher = (at) => axios.get(at)
   const {data,error,isLoading} = useSWR("/api/data",fetcher)
-  // console.log(data,error)
   return (
     <div className='max-w-[30rem] mx-auto mt-20'>
     <p className="text-3xl text-blue-600">Hello</p>
@@ -29,3 +30,11 @@ export default function Home() {
   );
 }
 
+// export async function getStaticProps(){
+//   const data = await prisma.data.findMany()
+//   return {
+//     props: {
+//       value : JSON.parse(JSON.stringify(data))
+//     }
+//   }
+// }
