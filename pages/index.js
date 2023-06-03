@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import axios from 'axios';
 import useSWR from "swr"
-// import prisma from '@/db/prisma';
+import prisma from '@/db/prisma';
 
 export default function Home({data}) {
   console.log({data});
