@@ -15,7 +15,7 @@ export default function Home() {
     <p className="text-3xl text-blue-600">Hello bro</p>
     <section>
       {
-        error && "error fetching data"
+        error && "error fetching data is on"
       }
       {
         data && data.data.map(data => (
