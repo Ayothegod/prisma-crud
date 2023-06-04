@@ -12,7 +12,7 @@ export default function Home() {
   console.log(data);
   return (
     <div className='max-w-[30rem] mx-auto mt-20'>
-    <p className="text-3xl text-blue-600">Hello</p>
+    <p className="text-3xl text-blue-600">Hello bro</p>
     <section>
       {
         error && "error fetching data"
